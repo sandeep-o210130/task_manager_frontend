@@ -17,7 +17,7 @@ function Task() {
         }
       
       try{
-        const response = await fetch("http://localhost:1234/tasks",
+        const response = await fetch("http://task-manager-backend-ogdl.onrender.com/tasks",
             {
                 method: "GET",
                 headers: {
@@ -51,7 +51,7 @@ function Task() {
         let updatedTask = {...data[edit],task:text};
 
         try{
-            const response = await fetch(`http://localhost:1234/tasks/${updatedTask.id}`,{
+            const response = await fetch(`http://task-manager-backend-ogdl.onrender.com/tasks/${updatedTask.id}`,{
               method:"PUT",
               headers:{'Content-Type':"application/json","Authorization": `${token}`},
               body:JSON.stringify(updatedTask),

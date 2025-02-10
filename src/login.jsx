@@ -13,7 +13,7 @@ let Login = ()=>{
     async function handleSubmit(e){
         e.preventDefault();
         try{
-            const res = await fetch("http://task-manager-backend-ogdl.onrender.com/login",
+            const res = await fetch("http://task-manager-backend-ogdl.onrender.com/api/user/login",
             {  body: JSON.stringify(formData),
                 headers:{"Content-Type":"application/json"},
                 method:"POST",
