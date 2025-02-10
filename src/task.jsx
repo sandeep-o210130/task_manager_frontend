@@ -78,7 +78,7 @@ function Task() {
         const task = {id:nanoid(),task:text,completed:false};
         setData([...data,task]);
         try{
-            const response = await fetch("http://localhost:1234/tasks",{
+            const response = await fetch("http://task-manager-backend-ogdl.onrender.com/tasks",{
                   method:'POST',
                   headers:{'Content-Type':'application/json',"Authorization": `${token}`},
                   body:JSON.stringify(task),
@@ -105,7 +105,7 @@ function Task() {
   async function deleteData(ind){
     let id = String(data[ind].id);
     try {
-      const response = await fetch(`http://localhost:1234/tasks/${id}`, {
+      const response = await fetch(`http://task-manager-backend-ogdl.onrender.com/tasks/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' ,"Authorization": `${token}`},
       });
@@ -130,7 +130,7 @@ function Task() {
     const newData = [...data];
     newData[index].completed = !newData[index].completed;
     try{
-      const response = await fetch(`http://localhost:1234/tasks/${newData[index].id}`,{
+      const response = await fetch(`http://task-manager-backend-ogdl.onrender.com/tasks/${newData[index].id}`,{
         method:"PUT",
         headers:{'Content-Type':"application/json","Authorization": `${token}`},
         body:JSON.stringify(newData[index]),
