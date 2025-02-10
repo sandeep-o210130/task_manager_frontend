@@ -12,7 +12,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<Navigate to="/task" />}></Route>
+          <Route path="/" element={<Navigate to="/login" />}></Route>
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/task" element={<ProtectedRoute><Task /></ProtectedRoute>}></Route>
