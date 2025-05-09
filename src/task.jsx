@@ -17,7 +17,7 @@ function Task() {
         }
       
       try{
-        const response = await fetch("http://task-manager-backend-ogdl.onrender.com/tasks",
+        const response = await fetch("https://task-manager-backend-2-kfxd.onrender.com/tasks",
             {
                 method: "GET",
                 headers: {
@@ -51,7 +51,7 @@ function Task() {
         let updatedTask = {...data[edit],task:text};
 
         try{
-            const response = await fetch(`http://task-manager-backend-ogdl.onrender.com/tasks/${updatedTask.id}`,{
+            const response = await fetch(`https://task-manager-backend-2-kfxd.onrender.com/tasks/${updatedTask.id}`,{
               method:"PUT",
               headers:{'Content-Type':"application/json","Authorization": `${token}`},
               body:JSON.stringify(updatedTask),
@@ -78,7 +78,7 @@ function Task() {
         const task = {id:nanoid(),task:text,completed:false};
         setData([...data,task]);
         try{
-            const response = await fetch("http://task-manager-backend-ogdl.onrender.com/tasks",{
+            const response = await fetch("https://task-manager-backend-2-kfxd.onrender.com/tasks",{
                   method:'POST',
                   headers:{'Content-Type':'application/json',"Authorization": `${token}`},
                   body:JSON.stringify(task),
@@ -105,7 +105,7 @@ function Task() {
   async function deleteData(ind){
     let id = String(data[ind].id);
     try {
-      const response = await fetch(`http://task-manager-backend-ogdl.onrender.com/tasks/${id}`, {
+      const response = await fetch(`https://task-manager-backend-2-kfxd.onrender.com/tasks/${id}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' ,"Authorization": `${token}`},
       });
@@ -130,7 +130,7 @@ function Task() {
     const newData = [...data];
     newData[index].completed = !newData[index].completed;
     try{
-      const response = await fetch(`http://task-manager-backend-ogdl.onrender.com/tasks/${newData[index].id}`,{
+      const response = await fetch(`https://task-manager-backend-2-kfxd.onrender.com/tasks/${newData[index].id}`,{
         method:"PUT",
         headers:{'Content-Type':"application/json","Authorization": `${token}`},
         body:JSON.stringify(newData[index]),

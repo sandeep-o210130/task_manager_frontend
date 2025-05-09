@@ -18,7 +18,7 @@ async function handleSubmit(e){
     e.preventDefault();
     let resp;
     try{
-        const res = await fetch("http://task-manager-backend-ogdl.onrender.com/api/user/register",
+        const res = await fetch("https://task-manager-backend-2-kfxd.onrender.com/api/user/register",
             {  body: JSON.stringify(formData),
                 headers:{"Content-Type":"application/json"},
                 method:"POST",
@@ -29,7 +29,7 @@ async function handleSubmit(e){
             throw new Error("Registration failed");
         }
 
-        resp = await fetch("http://task-manager-backend-ogdl.onrender.com/api/user/login",{
+        resp = await fetch("https://task-manager-backend-2-kfxd.onrender.com/api/user/login",{
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
                 email: formData.email,
@@ -39,7 +39,7 @@ async function handleSubmit(e){
         })
 
         if(!resp.ok){
-            throw new Error("Registration failed");
+            throw new Error("Login failed");
         }
         
         let data = await resp.json();
